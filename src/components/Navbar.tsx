@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, HardHat } from 'lucide-react';
+import { Menu, X, Boxes } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 
@@ -35,12 +35,17 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           <Link to="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center shadow-lg shadow-primary/10 group-hover:rotate-12 transition-transform duration-500">
-              <HardHat className="w-5 h-5 text-white" />
+            <div className="w-10 h-10 bg-slate-900 rounded-xl flex items-center justify-center shadow-lg shadow-slate-900/10 group-hover:rotate-12 transition-transform duration-500">
+              <Boxes className="w-6 h-6 text-primary" />
             </div>
-            <span className="font-bold text-lg tracking-tight text-slate-900 uppercase">
-              NARAYANI <span className="text-primary">CO.</span>
-            </span>
+            <div className="flex flex-col">
+              <span className="font-bold text-xl tracking-tight text-primary uppercase leading-none">
+                NARAYANI
+              </span>
+              <span className="text-[10px] font-bold text-slate-800 tracking-wider">
+                Enterprises & Co
+              </span>
+            </div>
           </Link>
 
           {/* Desktop Menu */}

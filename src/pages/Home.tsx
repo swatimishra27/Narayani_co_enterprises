@@ -32,7 +32,7 @@ export default function Home() {
             >
               <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 backdrop-blur-md border border-primary/20 text-primary text-[9px] font-bold uppercase tracking-[0.2em] mb-6">
                 <Construction className="w-3 h-3" />
-                Industrial Excellence Since 2014
+                EST. SUPPLY PARTNER
               </span>
               <motion.h1 
                 initial={{ opacity: 0, y: 20 }}
@@ -40,11 +40,10 @@ export default function Home() {
                 transition={{ duration: 0.8, delay: 0.2 }}
                 className="text-4xl md:text-5xl font-light text-white leading-[1.2] mb-6 drop-shadow-xl tracking-tight"
               >
-                The Standard for <br />
-                <span className="serif italic text-primary">Industrial</span> Excellence
+                Reliable Supply <span className="serif italic text-primary">Partner</span> for Construction, Building Materials & Safety Equipment
               </motion.h1>
               <p className="text-sm md:text-base text-slate-300 mb-10 leading-relaxed max-w-md font-medium">
-                Supplying India's most ambitious infrastructure projects with certified construction materials and safety equipment since 2014.
+                Delivering dependable supply solutions for construction, infrastructure, and industrial projects.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4">
@@ -96,9 +95,9 @@ export default function Home() {
                 transition={{ delay: 0.5, duration: 0.8 }}
                 className="absolute -bottom-10 -right-10 w-64 bg-slate-900 p-10 rounded-[2.5rem] shadow-2xl hidden md:block border border-white/5"
               >
-                <div className="text-5xl font-light text-primary mb-2 tracking-tighter">10+</div>
+                <div className="text-4xl font-light text-primary mb-2 tracking-tighter">100%</div>
                 <div className="text-[9px] font-bold text-white/40 uppercase tracking-[0.3em] leading-tight">
-                  Years of Unmatched <br /> Industrial Excellence
+                  Commitment to <br /> Quality Sourcing
                 </div>
               </motion.div>
               
@@ -115,22 +114,22 @@ export default function Home() {
               >
                 <h2 className="text-[10px] font-bold text-primary uppercase tracking-[0.4em] mb-6 flex items-center gap-3">
                   <span className="w-8 h-px bg-primary/30" />
-                  About Narayani Co.
+                  About Narayani Enterprises and Co
                 </h2>
                 <h3 className="text-4xl md:text-5xl font-light text-slate-900 tracking-tight leading-[1.1] mb-8">
                   Building the Future with <br />
-                  <span className="serif italic text-primary">Integrity</span> and Quality
+                  <span className="serif italic text-primary">Reliability</span> and Trust
                 </h3>
                 <p className="text-base md:text-lg text-slate-500 mb-12 leading-relaxed font-medium max-w-lg">
-                  Since 2014, we have been the backbone of major infrastructure projects across India. Our commitment to sourcing only the highest-grade materials ensures that every project we touch is built on a foundation of safety and durability.
+                  Established in 2026 and based in Pune, Maharashtra, we are a reliable supplier and trading partner for construction materials, building materials, industrial supplies, and safety equipment.
                 </p>
                 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-10 mb-14">
                   {[
-                    { title: 'Premium Sourcing', icon: Package, desc: 'Direct from certified plants' },
-                    { title: 'Certified Quality', icon: ShieldCheck, desc: 'Rigorous multi-point testing' },
-                    { title: 'Expert Logistics', icon: Truck, desc: 'Safe, on-time site delivery' },
-                    { title: 'Technical Support', icon: Users, desc: 'Expert material guidance' },
+                    { title: 'Reliability', icon: Package, desc: 'Consistent product availability' },
+                    { title: 'Quality Sourcing', icon: ShieldCheck, desc: 'Trusted manufacturer network' },
+                    { title: 'Timely Supply', icon: Truck, desc: 'Uninterrupted project progress' },
+                    { title: 'Customer Commitment', icon: Users, desc: 'Prioritizing your requirements' },
                   ].map((item, i) => (
                     <div key={i} className="group">
                       <div className="flex items-center gap-4 mb-3">
@@ -148,7 +147,7 @@ export default function Home() {
                   to="/about" 
                   className="inline-flex items-center gap-3 text-slate-900 text-[10px] font-bold uppercase tracking-[0.2em] hover:text-primary transition-all group"
                 >
-                  Learn More About Our Legacy 
+                  Learn More About Us
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </motion.div>
@@ -237,7 +236,7 @@ export default function Home() {
               Ready to Build Your <span className="italic serif text-primary">Vision?</span>
             </h2>
             <p className="text-slate-300/80 text-sm md:text-base font-medium mb-10 leading-relaxed max-w-xl mx-auto">
-              Partner with Narayani Co. for reliable, high-quality materials and professional industrial solutions. Let's build something exceptional together.
+              Partner with Narayani Enterprises and Co for reliable, high-quality materials and professional industrial solutions. Let's build something exceptional together.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
               <Link 

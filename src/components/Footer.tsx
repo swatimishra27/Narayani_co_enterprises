@@ -1,5 +1,5 @@
 import React from 'react';
-import { HardHat, Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin, ArrowRight } from 'lucide-react';
+import { Boxes, Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function Footer() {
@@ -9,15 +9,20 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-20">
           <div className="space-y-8">
             <Link to="/" className="flex items-center gap-3 group">
-              <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center shadow-lg shadow-primary/10 group-hover:rotate-12 transition-transform duration-500">
-                <HardHat className="w-5 h-5 text-white" />
+              <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center shadow-lg shadow-white/10 group-hover:rotate-12 transition-transform duration-500">
+                <Boxes className="w-6 h-6 text-primary" />
               </div>
-              <span className="font-bold text-lg tracking-tight text-white uppercase">
-                NARAYANI <span className="text-primary">CO.</span>
-              </span>
+              <div className="flex flex-col">
+                <span className="font-bold text-xl tracking-tight text-white uppercase leading-none">
+                  NARAYANI
+                </span>
+                <span className="text-[10px] font-bold text-slate-400 tracking-wider">
+                  Enterprises & Co
+                </span>
+              </div>
             </Link>
-            <p className="text-slate-400 leading-relaxed font-medium text-sm">
-              India's premier industrial partner, delivering excellence in construction, safety, and infrastructure materials since 2014.
+            <p className="text-slate-400 leading-relaxed font-medium text-[13px]">
+              Reliable supplier and trading partner for construction materials, building materials, industrial supplies, and safety equipment. Established in 2026.
             </p>
             <div className="flex gap-4">
               {[Facebook, Twitter, Instagram, Linkedin].map((Icon, i) => (
@@ -55,9 +60,9 @@ export default function Footer() {
             <h4 className="text-[10px] font-bold uppercase tracking-[0.3em] text-primary mb-8">Contact</h4>
             <ul className="space-y-6">
               {[
-                { icon: Phone, text: '+91 98765 43210', label: 'Call us' },
-                { icon: Mail, text: 'info@narayanico.com', label: 'Email us' },
-                { icon: MapPin, text: 'Industrial Area, Phase II, New Delhi', label: 'Visit us' },
+                { icon: Phone, text: '+91 9209157335 / 9990161075', label: 'Call us' },
+                { icon: Mail, text: 'narayanienterprises.1966@gmail.com', label: 'Email us' },
+                { icon: MapPin, text: 'Happy City, Talegaon Dabhade, Pune – 410506', label: 'Visit us' },
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-4">
                   <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0">

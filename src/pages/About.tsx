@@ -4,31 +4,31 @@ import { CheckCircle2, Users, Truck, Award, ShieldCheck, Banknote, Clock, Thumbs
 import { Link } from 'react-router-dom';
 
 const stats = [
-  { icon: Award, label: 'Years of Excellence', value: '10+' },
-  { icon: Users, label: 'Happy Clients', value: '500+' },
-  { icon: Truck, label: 'Deliveries Made', value: '10k+' },
+  { icon: Award, label: 'Quality Assurance', value: '100%' },
+  { icon: Users, label: 'Customer Satisfaction', value: 'Prioritized' },
+  { icon: Truck, label: 'Deliveries Made', value: 'On-Time' },
 ];
 
 const reasons = [
   {
     icon: ShieldCheck,
-    title: 'Quality Products',
-    description: 'We source only the highest grade materials that meet international safety and durability standards.'
+    title: 'Reliable Sourcing Network',
+    description: 'We work with trusted manufacturers and suppliers to ensure consistent availability of quality materials.'
   },
   {
     icon: Banknote,
     title: 'Competitive Pricing',
-    description: 'Direct sourcing and efficient logistics allow us to offer the best market rates for bulk supplies.'
+    description: 'Our strong supplier network enables us to provide cost-effective material supply solutions while maintaining product quality.'
   },
   {
     icon: Clock,
-    title: 'On-Time Delivery',
-    description: 'We understand project timelines. Our robust delivery network ensures your materials arrive when needed.'
+    title: 'Timely Delivery',
+    description: 'We understand the importance of project timelines and strive to ensure timely delivery of materials to support uninterrupted project progress.'
   },
   {
     icon: ThumbsUp,
-    title: 'Trusted Supplier',
-    description: 'Years of experience serving major builders, contractors, and industrial clients across India.'
+    title: 'Wide Product Portfolio',
+    description: 'From construction materials to safety equipment, we offer a diverse range of products to meet project requirements.'
   }
 ];
 
@@ -81,18 +81,22 @@ export default function About() {
                 Company Profile
               </h2>
               <h3 className="text-3xl md:text-4xl font-light text-slate-900 mb-8 leading-tight tracking-tight">
-                A Decade of <span className="serif italic text-primary">Reliability</span> <br /> in Every Supply
+                About Narayani <br />
+                <span className="serif italic text-primary">Enterprises and Co</span>
               </h3>
+              <p className="text-sm md:text-base text-slate-500 mb-6 leading-relaxed font-medium max-w-lg">
+                Narayani Enterprises and Co is a reliable supplier and trading partner for construction materials, building materials, industrial supplies, and safety equipment. Established in 2026 and based in Pune, Maharashtra, India, the company supports construction, infrastructure, and industrial projects by ensuring consistent availability of quality materials.
+              </p>
               <p className="text-sm md:text-base text-slate-500 mb-10 leading-relaxed font-medium max-w-lg">
-                Narayani Enterprises & Co is a premier supplier of construction, safety, and general materials in India. We specialize in providing high-grade materials that meet the rigorous demands of modern infrastructure and industrial projects.
+                Working with trusted manufacturers and suppliers, Narayani Enterprises and Co ensures customers receive products that meet industry standards — serving contractors, builders, infrastructure developers, and industrial clients under one trusted supply network.
               </p>
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 mb-12">
                 {[
-                  'Uncompromising focus on quality',
-                  'Reliable supply chain network',
-                  'Competitive industrial pricing',
-                  'Certified safety equipment'
+                  'Reliability',
+                  'Quality Sourcing',
+                  'Timely Supply',
+                  'Customer Satisfaction'
                 ].map((item) => (
                   <div key={item} className="flex items-center gap-3">
                     <div className="w-4 h-4 rounded-full bg-primary/10 flex items-center justify-center shrink-0">

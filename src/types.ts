@@ -3,7 +3,7 @@ export interface Product {
   name: string;
   description: string;
   image: string;
-  category: 'building' | 'safety' | 'general';
+  category: 'construction' | 'building' | 'safety' | 'industrial';
 }
 
 export interface NavItem {

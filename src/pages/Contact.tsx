@@ -47,14 +47,17 @@ export default function Contact() {
                 viewport={{ once: true }}
                 className="bg-slate-50 p-8 md:p-10 rounded-[2.5rem] border border-slate-100 shadow-sm"
               >
-                <h4 className="text-xl font-bold text-slate-900 mb-2 tracking-tight">Narayani Co.</h4>
-                <p className="text-[10px] text-slate-400 mb-10 font-bold uppercase tracking-widest">Industrial Material Solutions</p>
+                <h4 className="text-xl font-bold text-slate-900 mb-2 tracking-tight">Narayani Enterprises and Co</h4>
+                <p className="text-[10px] text-slate-400 mb-10 font-bold uppercase tracking-widest leading-relaxed">
+                  Supplier & Distribution Partner of Construction Materials, Building Materials, Safety Equipment, and Industrial Supplies.<br/><br/>
+                  <span className="text-primary">Managing Director: Ramesh Kumar Mishra</span>
+                </p>
                 
                 <div className="space-y-6">
                   {[
-                    { icon: Phone, text: '+91 98765 43210', label: 'Call us' },
-                    { icon: Mail, text: 'sales@narayanico.com', label: 'Email us' },
-                    { icon: MapPin, text: 'Industrial Area, Mumbai, India', label: 'Visit us' },
+                    { icon: Phone, text: '+91 9209157335 / 9990161075', label: 'Call us' },
+                    { icon: Mail, text: 'narayanienterprises.1966@gmail.com', label: 'Email us' },
+                    { icon: MapPin, text: 'Happy City, Talegaon Dabhade, Pune – 410506', label: 'Visit us' },
                   ].map((item, i) => (
                     <div key={i} className="flex items-start gap-4 group cursor-pointer">
                       <div className="w-10 h-10 bg-white rounded-xl border border-slate-200 flex items-center justify-center shrink-0 shadow-sm group-hover:border-primary group-hover:bg-primary/5 transition-all duration-300">
@@ -68,9 +71,19 @@ export default function Contact() {
                   ))}
                 </div>
 
-                <div className="mt-10 pt-8 border-t border-slate-200">
+                <div className="mt-8 pt-6 border-t border-slate-200">
+                  <p className="text-xs text-slate-500 font-medium italic">
+                    Supporting construction and infrastructure projects PAN India.
+                  </p>
+                  <p className="text-[10px] flex justify-between tracking-wider font-bold uppercase text-slate-400 mt-4">
+                    <span>GST: On request</span>
+                    <span>UDYAM: On request</span>
+                  </p>
+                </div>
+
+                <div className="mt-8 pt-8 border-t border-slate-200">
                   <a
-                    href="https://wa.me/919876543210"
+                    href="https://wa.me/919209157335"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center justify-center gap-3 w-full bg-[#25D366] text-white py-4 rounded-2xl font-bold text-[10px] uppercase tracking-widest hover:opacity-90 transition-all shadow-xl shadow-green-500/10 hover:scale-[1.02] active:scale-95"
