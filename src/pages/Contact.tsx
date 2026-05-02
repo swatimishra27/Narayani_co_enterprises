@@ -48,16 +48,18 @@ export default function Contact() {
                 className="bg-slate-50 p-8 md:p-10 rounded-[2.5rem] border border-slate-100 shadow-sm"
               >
                 <h4 className="text-xl font-bold text-slate-900 mb-2 tracking-tight">Narayani Enterprises and Co</h4>
+                <p className="text-[10px] text-slate-500 mb-2 font-bold tracking-wider leading-relaxed">
+                  <span className="text-primary uppercase">Managing Director:</span> Ramesh Kumar Mishra
+                </p>
                 <p className="text-[10px] text-slate-400 mb-10 font-bold uppercase tracking-widest leading-relaxed">
-                  Supplier & Distribution Partner of Construction Materials, Building Materials, Safety Equipment, and Industrial Supplies.<br/><br/>
-                  <span className="text-primary">Managing Director: Ramesh Kumar Mishra</span>
+                  Nature of Business: Supplier & Distribution Partner of Construction Materials, Building Materials, Safety Equipment, and Industrial Supplies.
                 </p>
                 
                 <div className="space-y-6">
                   {[
-                    { icon: Phone, text: '+91 9209157335 / 9990161075', label: 'Call us' },
-                    { icon: Mail, text: 'narayanienterprises.1966@gmail.com', label: 'Email us' },
-                    { icon: MapPin, text: 'Happy City, Talegaon Dabhade, Pune – 410506', label: 'Visit us' },
+                    { icon: Phone, text: '+91 9209157335 / 9990161075', label: 'Contact Details' },
+                    { icon: Mail, text: 'reachus@narayanibuildmart.com', label: 'Email Address' },
+                    { icon: MapPin, text: 'Happy City, Talegaon Dabhade, Pune – 410506, Maharashtra, India', label: 'Business Address' },
                   ].map((item, i) => (
                     <div key={i} className="flex items-start gap-4 group cursor-pointer">
                       <div className="w-10 h-10 bg-white rounded-xl border border-slate-200 flex items-center justify-center shrink-0 shadow-sm group-hover:border-primary group-hover:bg-primary/5 transition-all duration-300">
@@ -65,7 +67,7 @@ export default function Contact() {
                       </div>
                       <div>
                         <div className="text-[9px] font-bold text-slate-400 uppercase tracking-[0.2em] mb-1">{item.label}</div>
-                        <div className="text-slate-900 font-bold text-sm tracking-tight group-hover:text-primary transition-colors">{item.text}</div>
+                        <div className="text-slate-900 font-bold text-sm tracking-tight group-hover:text-primary transition-colors pr-4">{item.text}</div>
                       </div>
                     </div>
                   ))}
@@ -75,9 +77,15 @@ export default function Contact() {
                   <p className="text-xs text-slate-500 font-medium italic">
                     Supporting construction and infrastructure projects PAN India.
                   </p>
-                  <p className="text-[10px] flex justify-between tracking-wider font-bold uppercase text-slate-400 mt-4">
-                    <span>GST: On request</span>
-                    <span>UDYAM: On request</span>
+                  <p className="text-[10px] flex justify-between tracking-wider font-bold uppercase text-slate-800 mt-6 bg-white p-4 rounded-xl border border-slate-100 shadow-sm">
+                    <span className="flex flex-col gap-1">
+                      <span className="text-[8px] text-slate-400">GST Number</span>
+                      Available on request
+                    </span>
+                    <span className="flex flex-col gap-1 text-right">
+                      <span className="text-[8px] text-slate-400">Udyam Registration</span>
+                      Available on request
+                    </span>
                   </p>
                 </div>
 
@@ -134,7 +142,10 @@ export default function Contact() {
                 className="bg-white p-8 md:p-12 rounded-[3rem] border border-slate-100 shadow-2xl shadow-slate-200/40"
               >
                 <div className="mb-10">
-                  <h3 className="text-2xl font-light text-slate-900 tracking-tight mb-2">Send us a <span className="serif italic text-primary">Message</span></h3>
+                  <h3 className="text-2xl font-light text-slate-900 tracking-tight mb-4">Send us a <span className="serif italic text-primary">Message</span></h3>
+                  <p className="text-[11px] text-slate-600 font-medium leading-relaxed mb-6">
+                    We look forward to supporting your construction and infrastructure projects with reliable supply of construction materials, building materials, safety equipment, and industrial supplies.
+                  </p>
                   <p className="text-[11px] text-slate-400 font-bold uppercase tracking-widest">We usually respond within 24 hours.</p>
                 </div>
 

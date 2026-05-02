@@ -8,27 +8,49 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-20">
           <div className="space-y-8">
-            <Link to="/" className="flex items-center gap-3 group">
-              <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center shadow-lg shadow-white/10 group-hover:rotate-12 transition-transform duration-500">
-                <Boxes className="w-6 h-6 text-primary" />
+            <Link to="/" className="flex items-center group">
+              <div className="bg-white p-2 rounded-xl inline-block">
+                <img 
+                  src="/logo.png" 
+                  alt="Narayani Enterprises & Co Logo" 
+                  className="h-12 w-auto object-contain transition-transform duration-500 group-hover:scale-105" 
+                  onError={(e) => {
+                    e.currentTarget.style.display = 'none';
+                    e.currentTarget.parentElement!.style.display = 'none';
+                    e.currentTarget.parentElement!.nextElementSibling!.classList.remove('hidden');
+                    e.currentTarget.parentElement!.nextElementSibling!.classList.add('flex');
+                  }}
+                />
               </div>
-              <div className="flex flex-col">
-                <span className="font-bold text-xl tracking-tight text-white uppercase leading-none">
-                  NARAYANI
-                </span>
-                <span className="text-[10px] font-bold text-slate-400 tracking-wider">
-                  Enterprises & Co
-                </span>
+              <div className="hidden items-center gap-3">
+                <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center shadow-lg shadow-white/10 group-hover:rotate-12 transition-transform duration-500">
+                  <Boxes className="w-6 h-6 text-primary" />
+                </div>
+                <div className="flex flex-col">
+                  <span className="font-bold text-xl tracking-tight text-white uppercase leading-none">
+                    NARAYANI
+                  </span>
+                  <span className="text-[10px] font-bold text-slate-400 tracking-wider">
+                    Enterprises & Co
+                  </span>
+                </div>
               </div>
             </Link>
             <p className="text-slate-400 leading-relaxed font-medium text-[13px]">
               Reliable supplier and trading partner for construction materials, building materials, industrial supplies, and safety equipment. Established in 2026.
             </p>
             <div className="flex gap-4">
-              {[Facebook, Twitter, Instagram, Linkedin].map((Icon, i) => (
+              {[
+                { Icon: Facebook, href: '#' },
+                { Icon: Twitter, href: '#' },
+                { Icon: Instagram, href: '#' },
+                { Icon: Linkedin, href: 'https://linkedin.com/company/narayani-enterprises-co/' }
+              ].map(({Icon, href}, i) => (
                 <a
                   key={i}
-                  href="#"
+                  href={href}
+                  target={href !== '#' ? "_blank" : undefined}
+                  rel={href !== '#' ? "noopener noreferrer" : undefined}
                   className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:bg-primary hover:text-white hover:border-primary transition-all duration-300"
                 >
                   <Icon className="w-4 h-4" />
@@ -61,7 +83,7 @@ export default function Footer() {
             <ul className="space-y-6">
               {[
                 { icon: Phone, text: '+91 9209157335 / 9990161075', label: 'Call us' },
-                { icon: Mail, text: 'narayanienterprises.1966@gmail.com', label: 'Email us' },
+                { icon: Mail, text: 'reachus@narayanibuildmart.com', label: 'Email us' },
                 { icon: MapPin, text: 'Happy City, Talegaon Dabhade, Pune – 410506', label: 'Visit us' },
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-4">

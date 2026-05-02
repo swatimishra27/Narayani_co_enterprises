@@ -32,7 +32,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: 'c5',
-    name: 'Precast Materials',
+    name: 'Precast Items',
     description: 'Supply of precast concrete items used in drainage systems, infrastructure works, and construction applications.',
     image: 'https://images.unsplash.com/photo-1584824486516-0555a07fc511?auto=format&fit=crop&q=80&w=800',
     category: 'construction'
@@ -50,7 +50,7 @@ export const PRODUCTS: Product[] = [
     id: 'b2',
     name: 'Blocks',
     description: 'Supply of concrete blocks and other masonry blocks used for structural and partition wall construction.',
-    image: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1590401869375-926c813589c3?auto=format&fit=crop&q=80&w=800',
     category: 'building'
   },
   {
@@ -115,7 +115,7 @@ export const PRODUCTS: Product[] = [
     id: 's5',
     name: 'Safety Harness',
     description: 'Supply of safety harness equipment used for working at heights and fall protection in construction and industrial environments.',
-    image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1504307651254-35680f356fce?auto=format&fit=crop&q=80&w=800',
     category: 'safety'
   },
   {

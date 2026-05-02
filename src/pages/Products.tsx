@@ -6,9 +6,10 @@ import { Construction, Shield, Package, Search, ArrowRight } from 'lucide-react'
 
 const categories = [
   { id: 'all', label: 'All Products', icon: Package },
-  { id: 'building', label: 'Building Materials', icon: Construction },
-  { id: 'safety', label: 'Safety Materials', icon: Shield },
-  { id: 'general', label: 'General Materials', icon: Package },
+  { id: 'construction', label: 'Construction', icon: Construction },
+  { id: 'building', label: 'Building', icon: Construction },
+  { id: 'safety', label: 'Safety', icon: Shield },
+  { id: 'industrial', label: 'Industrial', icon: Package },
 ];
 
 export default function Products() {
