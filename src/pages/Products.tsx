@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { PRODUCTS } from '../constants';
-import { Construction, Shield, Package, Search, ArrowRight } from 'lucide-react';
+import { HardHat, Building2, ShieldCheck, Wrench, LayoutGrid, Search, X, ArrowRight, SlidersHorizontal } from 'lucide-react';
 
 const categories = [
-  { id: 'all', label: 'All Products', icon: Package },
-  { id: 'construction', label: 'Construction', icon: Construction },
-  { id: 'building', label: 'Building', icon: Construction },
-  { id: 'safety', label: 'Safety', icon: Shield },
-  { id: 'industrial', label: 'Industrial', icon: Package },
+  { id: 'all',          label: 'All Products',  icon: LayoutGrid },
+  { id: 'construction', label: 'Construction',   icon: HardHat },
+  { id: 'building',     label: 'Building',       icon: Building2 },
+  { id: 'safety',       label: 'Safety',         icon: ShieldCheck },
+  { id: 'industrial',   label: 'Industrial',     icon: Wrench },
 ];
 
 export default function Products() {
@@ -58,78 +58,85 @@ export default function Products() {
 
       <section className="py-24 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Search and Filter Controls */}
-          <div className="mb-12">
-            <div className="flex flex-col lg:flex-row gap-8 items-end justify-between border-b border-slate-200 pb-8">
-              <div className="w-full lg:w-1/2 space-y-6">
-                <div className="flex items-center gap-3 text-[10px] font-bold text-primary uppercase tracking-[0.4em] mb-2">
-                  <Search className="w-3 h-3" />
-                  Search Catalog
-                </div>
-                <div className="relative group">
-                  <input
-                    type="text"
-                    placeholder="Search by name, category, or specification..."
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                    className="w-full bg-transparent border-none p-0 text-base md:text-lg font-medium text-slate-900 placeholder:text-slate-300 focus:ring-0 outline-none transition-all tracking-tight"
-                  />
-                  <div className="absolute bottom-[-12px] left-0 w-full h-[1px] bg-slate-100 group-focus-within:bg-primary transition-colors duration-500" />
-                  <div className="absolute bottom-[-12px] left-0 w-0 h-[1px] bg-primary group-focus-within:w-full transition-all duration-700 ease-out" />
-                </div>
-              </div>
+          {/* ── Search & Filter ── */}
+          <div className="mb-10 bg-white rounded-3xl border border-slate-100 shadow-sm overflow-hidden">
 
-              <div className="w-full lg:w-auto">
-                <div className="flex flex-wrap items-center gap-1">
-                  {categories.map((cat) => {
-                    const Icon = cat.icon;
-                    const isActive = activeCategory === cat.id;
-                    return (
-                      <button
-                        key={cat.id}
-                        onClick={() => setActiveCategory(cat.id)}
-                        className={`group relative flex items-center gap-3 px-6 py-3 rounded-full transition-all duration-500 ${
-                          isActive 
-                            ? 'text-slate-900' 
-                            : 'text-slate-400 hover:text-slate-600'
-                        }`}
-                      >
-                        <Icon className={`w-3 h-3 transition-colors duration-500 ${isActive ? 'text-primary' : 'text-slate-300 group-hover:text-slate-400'}`} />
-                        <span className="text-[10px] font-bold uppercase tracking-[0.2em]">{cat.label}</span>
-                        {isActive && (
-                          <motion.div
-                            layoutId="activeCategory"
-                            className="absolute inset-0 bg-slate-100 rounded-full -z-10"
-                            transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-                          />
-                        )}
-                      </button>
-                    );
-                  })}
-                </div>
+            {/* Search row */}
+            <div className="flex items-center gap-4 px-6 py-5 border-b border-slate-100">
+              <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+                <Search className="w-4 h-4 text-primary" />
               </div>
-            </div>
-            
-            <div className="flex items-center justify-between mt-8 px-1">
-              <div className="flex items-center gap-6">
-                <div className="text-[9px] font-bold text-slate-400 uppercase tracking-[0.3em] flex items-center gap-3">
-                  <span className="w-6 h-px bg-slate-200" />
-                  {filteredProducts.length} Products Found
-                </div>
+              <input
+                type="text"
+                placeholder="Search products by name or description..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="flex-1 bg-transparent text-sm md:text-base font-medium text-slate-900 placeholder:text-slate-400 focus:outline-none"
+              />
+              <AnimatePresence>
                 {searchQuery && (
-                  <button 
+                  <motion.button
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.8 }}
                     onClick={() => setSearchQuery('')}
-                    className="text-[9px] font-bold text-primary uppercase tracking-[0.2em] hover:text-slate-900 transition-colors flex items-center gap-2"
+                    className="w-7 h-7 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center transition-colors shrink-0"
                   >
-                    Clear Search
-                    <span className="text-slate-300">/</span>
-                  </button>
+                    <X className="w-3.5 h-3.5 text-slate-500" />
+                  </motion.button>
                 )}
+              </AnimatePresence>
+            </div>
+
+            {/* Filter row */}
+            <div className="flex items-center gap-3 px-6 py-4 overflow-x-auto scrollbar-none">
+              <div className="flex items-center gap-2 text-[9px] font-bold text-slate-400 uppercase tracking-widest shrink-0 mr-2">
+                <SlidersHorizontal className="w-3 h-3" />
+                Filter
               </div>
-              
-              <div className="hidden md:flex items-center gap-2 text-[9px] font-bold text-slate-400 uppercase tracking-[0.2em]">
-                Sort by: <span className="text-slate-900 cursor-pointer hover:text-primary transition-colors">Default</span>
-              </div>
+              {categories.map((cat) => {
+                const Icon = cat.icon;
+                const isActive = activeCategory === cat.id;
+                return (
+                  <button
+                    key={cat.id}
+                    onClick={() => setActiveCategory(cat.id)}
+                    className={`relative flex items-center gap-2 px-4 py-2 rounded-xl text-[10px] font-bold uppercase tracking-[0.15em] transition-all duration-300 shrink-0 ${
+                      isActive
+                        ? 'bg-primary text-white shadow-lg shadow-primary/20'
+                        : 'bg-slate-50 text-slate-500 hover:bg-slate-100 hover:text-slate-800'
+                    }`}
+                  >
+                    <Icon className="w-3.5 h-3.5" />
+                    {cat.label}
+                    {isActive && (
+                      <motion.div
+                        layoutId="activePill"
+                        className="absolute inset-0 bg-primary rounded-xl -z-10"
+                        transition={{ type: 'spring', bounce: 0.25, duration: 0.5 }}
+                      />
+                    )}
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Results strip */}
+            <div className="flex items-center justify-between px-6 py-3 bg-slate-50 border-t border-slate-100">
+              <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+                <span className="text-slate-900">{filteredProducts.length}</span> product{filteredProducts.length !== 1 ? 's' : ''} found
+                {activeCategory !== 'all' && (
+                  <span className="ml-2 text-primary">· {categories.find(c => c.id === activeCategory)?.label}</span>
+                )}
+              </p>
+              {(searchQuery || activeCategory !== 'all') && (
+                <button
+                  onClick={() => { setSearchQuery(''); setActiveCategory('all'); }}
+                  className="text-[9px] font-bold text-slate-400 hover:text-primary uppercase tracking-widest transition-colors flex items-center gap-1.5"
+                >
+                  <X className="w-3 h-3" /> Clear all
+                </button>
+              )}
             </div>
           </div>
 

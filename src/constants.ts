@@ -6,35 +6,35 @@ export const PRODUCTS: Product[] = [
     id: 'c1',
     name: 'Cement',
     description: 'Supply of quality cement suitable for residential, commercial, and infrastructure construction projects.',
-    image: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1585771724684-38269d6639fd?auto=format&fit=crop&q=80&w=800',
     category: 'construction'
   },
   {
     id: 'c2',
     name: 'Sand',
     description: 'Supply of construction sand used for concrete preparation, plastering, and masonry work.',
-    image: 'https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1509479200622-4503f27f12ef?auto=format&fit=crop&q=80&w=800',
     category: 'construction'
   },
   {
     id: 'c3',
     name: 'Aggregates',
     description: 'Supply of aggregates required for concrete production and structural construction applications.',
-    image: 'https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?auto=format&fit=crop&q=80&w=800',
     category: 'construction'
   },
   {
     id: 'c4',
     name: 'Concrete Products',
     description: 'Supply of precast and concrete-based materials used in construction and infrastructure projects.',
-    image: 'https://images.unsplash.com/photo-1623869608149-1db7aeac5cd1?auto=format&fit=crop&q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?auto=format&fit=crop&q=80&w=800',
     category: 'construction'
   },
   {
     id: 'c5',
     name: 'Precast Items',
     description: 'Supply of precast concrete items used in drainage systems, infrastructure works, and construction applications.',
-    image: 'https://images.unsplash.com/photo-1584824486516-0555a07fc511?auto=format&fit=crop&q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?auto=format&fit=crop&q=80&w=800',
     category: 'construction'
   },
 
@@ -43,7 +43,7 @@ export const PRODUCTS: Product[] = [
     id: 'b1',
     name: 'Bricks',
     description: 'Supply of quality bricks used for masonry construction in residential, commercial, and infrastructure projects.',
-    image: 'https://images.unsplash.com/photo-1588612140445-5ec27f422c1b?auto=format&fit=crop&q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1587582345426-bf07f534b9b4?auto=format&fit=crop&q=80&w=800',
     category: 'building'
   },
   {
@@ -57,28 +57,28 @@ export const PRODUCTS: Product[] = [
     id: 'b3',
     name: 'TMT Steel Bars',
     description: 'Supply of TMT steel bars used for reinforced concrete structures and structural construction.',
-    image: 'https://images.unsplash.com/photo-1621259464523-28c039bd0109?auto=format&fit=crop&q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1604754742629-3e5728249d73?auto=format&fit=crop&q=80&w=800',
     category: 'building'
   },
   {
     id: 'b4',
     name: 'Tiles and Flooring Materials',
     description: 'Supply of tiles and flooring materials suitable for residential, commercial, and industrial spaces.',
-    image: 'https://images.unsplash.com/photo-1581428982868-e410dd047a90?auto=format&fit=crop&q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1615971677499-5467cbab01d0?auto=format&fit=crop&q=80&w=800',
     category: 'building'
   },
   {
     id: 'b5',
     name: 'Pipes and Fittings',
     description: 'Supply of pipes and fittings used in plumbing, drainage, and construction infrastructure systems.',
-    image: 'https://images.unsplash.com/photo-1634586202450-482a15c8e318?auto=format&fit=crop&q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1558979158-65a1eaa08691?auto=format&fit=crop&q=80&w=800',
     category: 'building'
   },
   {
     id: 'b6',
     name: 'Waterproofing Materials',
     description: 'Supply of waterproofing materials used for protecting structures from water penetration and moisture damage.',
-    image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1556909211-36987daf7b4d?auto=format&fit=crop&q=80&w=800',
     category: 'building'
   },
 
@@ -87,7 +87,7 @@ export const PRODUCTS: Product[] = [
     id: 's1',
     name: 'Safety Helmets',
     description: 'Supply of protective helmets used to safeguard workers from head injuries in construction and industrial work environments.',
-    image: 'https://images.unsplash.com/photo-1513828583688-c52646db42da?auto=format&fit=crop&q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1607344645866-009c320b63e0?auto=format&fit=crop&q=80&w=800',
     category: 'safety'
   },
   {
@@ -115,7 +115,7 @@ export const PRODUCTS: Product[] = [
     id: 's5',
     name: 'Safety Harness',
     description: 'Supply of safety harness equipment used for working at heights and fall protection in construction and industrial environments.',
-    image: 'https://images.unsplash.com/photo-1504307651254-35680f356fce?auto=format&fit=crop&q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1605732562742-3023a888e56e?auto=format&fit=crop&q=80&w=800',
     category: 'safety'
   },
   {

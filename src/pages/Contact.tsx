@@ -1,11 +1,62 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { Phone, Mail, MapPin, MessageCircle, Send, Clock, ArrowRight } from 'lucide-react';
+import { Phone, Mail, MapPin, MessageCircle, Send, ChevronDown, CheckCircle2 } from 'lucide-react';
+
+const WHATSAPP_NUMBER = '919209157335';
+const EMAIL_ADDRESS   = 'reachus@narayanibuildmart.com';
+
+const subjects = [
+  'Material Inquiry',
+  'Bulk Order Quote',
+  'Safety Equipment Inquiry',
+  'Partnership Request',
+  'Other',
+];
 
 export default function Contact() {
+  const [form, setForm] = useState({
+    name: '',
+    phone: '',
+    email: '',
+    subject: subjects[0],
+    message: '',
+  });
+  const [sent, setSent] = useState<'whatsapp' | 'email' | null>(null);
+
+  const update = (field: string, value: string) =>
+    setForm(prev => ({ ...prev, [field]: value }));
+
+  const isValid = form.name.trim() && form.phone.trim() && form.message.trim();
+
+  const buildMessage = () =>
+    `Hi Narayani Enterprises and Co,\n\nName: ${form.name}\nPhone: ${form.phone}${form.email ? `\nEmail: ${form.email}` : ''}\nSubject: ${form.subject}\n\nMessage:\n${form.message}`;
+
+  const handleWhatsApp = () => {
+    if (!isValid) return;
+    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(buildMessage())}`;
+    window.open(url, '_blank');
+    setSent('whatsapp');
+  };
+
+  const handleEmail = () => {
+    if (!isValid) return;
+    const subject = encodeURIComponent(`[Narayani Enterprises] ${form.subject}`);
+    const body    = encodeURIComponent(buildMessage());
+    window.open(`mailto:${EMAIL_ADDRESS}?subject=${subject}&body=${body}`, '_blank');
+    setSent('email');
+  };
+
+  const handleReset = () => {
+    setForm({ name: '', phone: '', email: '', subject: subjects[0], message: '' });
+    setSent(null);
+  };
+
+  const inputCls = 'w-full px-5 py-3.5 rounded-2xl bg-slate-50 border border-slate-200 focus:border-primary focus:ring-4 focus:ring-primary/5 outline-none transition-all text-sm font-medium placeholder:text-slate-300 text-slate-900';
+
   return (
     <div className="page-transition">
-      {/* 1. Hero Section */}
+
+      {/* Hero */}
       <section className="relative h-[50vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
@@ -17,198 +68,257 @@ export default function Contact() {
           <div className="absolute inset-0 bg-slate-900/75 backdrop-blur-[1px]" />
           <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-slate-900/30" />
         </div>
-
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-center pt-16">
-          <motion.div
+          <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-5xl md:text-6xl font-light text-white leading-tight drop-shadow-xl tracking-tighter"
           >
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-5xl md:text-6xl font-light text-white leading-tight mb-0 drop-shadow-xl tracking-tighter"
-            >
-              Contact <span className="serif italic text-primary">Us</span>
-            </motion.h1>
-          </motion.div>
+            Contact <span className="serif italic text-primary">Us</span>
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="mt-4 text-slate-300 text-sm font-medium"
+          >
+            Send us your inquiry — we respond within 24 hours.
+          </motion.p>
         </div>
       </section>
 
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
-            {/* Contact Info */}
-            <div className="lg:col-span-4 space-y-8">
-              <motion.div 
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                className="bg-slate-50 p-8 md:p-10 rounded-[2.5rem] border border-slate-100 shadow-sm"
-              >
-                <h4 className="text-xl font-bold text-slate-900 mb-2 tracking-tight">Narayani Enterprises and Co</h4>
-                <p className="text-[10px] text-slate-500 mb-2 font-bold tracking-wider leading-relaxed">
-                  <span className="text-primary uppercase">Managing Director:</span> Ramesh Kumar Mishra
-                </p>
-                <p className="text-[10px] text-slate-400 mb-10 font-bold uppercase tracking-widest leading-relaxed">
-                  Nature of Business: Supplier & Distribution Partner of Construction Materials, Building Materials, Safety Equipment, and Industrial Supplies.
-                </p>
-                
-                <div className="space-y-6">
+      {/* Main */}
+      <section className="py-20 bg-slate-50">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-start">
+
+            {/* ── Left: Contact Info ── */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="lg:col-span-2 space-y-4"
+            >
+              {/* Info card */}
+              <div className="bg-white rounded-3xl border border-slate-100 shadow-sm p-8 space-y-6">
+                <div>
+                  <h4 className="text-lg font-bold text-slate-900 tracking-tight">Narayani Enterprises and Co</h4>
+                  <p className="text-xs text-slate-500 font-medium mt-1">
+                    Supplier & Distribution Partner — Construction, Building, Safety & Industrial
+                  </p>
+                </div>
+
+                <div className="space-y-5">
                   {[
-                    { icon: Phone, text: '+91 9209157335 / 9990161075', label: 'Contact Details' },
-                    { icon: Mail, text: 'reachus@narayanibuildmart.com', label: 'Email Address' },
-                    { icon: MapPin, text: 'Happy City, Talegaon Dabhade, Pune – 410506, Maharashtra, India', label: 'Business Address' },
+                    {
+                      icon: Phone,
+                      label: 'Phone',
+                      text: '+91 9209157335 / 9990161075',
+                      href: 'tel:+919209157335',
+                    },
+                    {
+                      icon: Mail,
+                      label: 'Email',
+                      text: EMAIL_ADDRESS,
+                      href: `mailto:${EMAIL_ADDRESS}`,
+                    },
+                    {
+                      icon: MapPin,
+                      label: 'Address',
+                      text: 'Happy City, Talegaon Dabhade, Pune – 410506, Maharashtra',
+                      href: undefined,
+                    },
                   ].map((item, i) => (
-                    <div key={i} className="flex items-start gap-4 group cursor-pointer">
-                      <div className="w-10 h-10 bg-white rounded-xl border border-slate-200 flex items-center justify-center shrink-0 shadow-sm group-hover:border-primary group-hover:bg-primary/5 transition-all duration-300">
+                    <div key={i} className="flex items-start gap-4 group">
+                      <div className="w-9 h-9 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
                         <item.icon className="w-4 h-4 text-primary" />
                       </div>
                       <div>
-                        <div className="text-[9px] font-bold text-slate-400 uppercase tracking-[0.2em] mb-1">{item.label}</div>
-                        <div className="text-slate-900 font-bold text-sm tracking-tight group-hover:text-primary transition-colors pr-4">{item.text}</div>
+                        <div className="text-[9px] font-bold text-slate-400 uppercase tracking-widest mb-0.5">{item.label}</div>
+                        {item.href ? (
+                          <a href={item.href} className="text-sm font-semibold text-slate-800 hover:text-primary transition-colors leading-snug">
+                            {item.text}
+                          </a>
+                        ) : (
+                          <p className="text-sm font-semibold text-slate-800 leading-snug">{item.text}</p>
+                        )}
                       </div>
                     </div>
                   ))}
                 </div>
 
-                <div className="mt-8 pt-6 border-t border-slate-200">
-                  <p className="text-xs text-slate-500 font-medium italic">
-                    Supporting construction and infrastructure projects PAN India.
-                  </p>
-                  <p className="text-[10px] flex justify-between tracking-wider font-bold uppercase text-slate-800 mt-6 bg-white p-4 rounded-xl border border-slate-100 shadow-sm">
-                    <span className="flex flex-col gap-1">
-                      <span className="text-[8px] text-slate-400">GST Number</span>
-                      Available on request
-                    </span>
-                    <span className="flex flex-col gap-1 text-right">
-                      <span className="text-[8px] text-slate-400">Udyam Registration</span>
-                      Available on request
-                    </span>
-                  </p>
+                <div className="pt-4 border-t border-slate-100 grid grid-cols-2 gap-3 text-center">
+                  <div className="bg-slate-50 rounded-xl p-3">
+                    <div className="text-[8px] font-bold text-slate-400 uppercase tracking-widest mb-1">GST Number</div>
+                    <div className="text-[10px] font-bold text-slate-700">On Request</div>
+                  </div>
+                  <div className="bg-slate-50 rounded-xl p-3">
+                    <div className="text-[8px] font-bold text-slate-400 uppercase tracking-widest mb-1">Udyam Reg.</div>
+                    <div className="text-[10px] font-bold text-slate-700">On Request</div>
+                  </div>
                 </div>
+              </div>
 
-                <div className="mt-8 pt-8 border-t border-slate-200">
-                  <a
-                    href="https://wa.me/919209157335"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-3 w-full bg-[#25D366] text-white py-4 rounded-2xl font-bold text-[10px] uppercase tracking-widest hover:opacity-90 transition-all shadow-xl shadow-green-500/10 hover:scale-[1.02] active:scale-95"
+              {/* WhatsApp direct button */}
+              <a
+                href={`https://wa.me/${WHATSAPP_NUMBER}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-3 w-full bg-[#25D366] text-white py-4 rounded-2xl font-bold text-[11px] uppercase tracking-widest hover:opacity-90 transition-all shadow-lg shadow-green-500/20 hover:scale-[1.02] active:scale-95"
+              >
+                <MessageCircle className="w-4 h-4" />
+                Chat on WhatsApp
+              </a>
+
+              <p className="text-center text-[10px] text-slate-400 font-medium">
+                Supporting construction & infrastructure projects PAN India.
+              </p>
+            </motion.div>
+
+            {/* ── Right: Form ── */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="lg:col-span-3"
+            >
+              <div className="bg-white rounded-3xl border border-slate-100 shadow-sm p-8 md:p-10">
+
+                {sent ? (
+                  /* Success state */
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    className="text-center py-12"
                   >
-                    <MessageCircle className="w-4 h-4" />
-                    WhatsApp Support
-                  </a>
-                </div>
-              </motion.div>
-
-              <motion.div 
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.1 }}
-                className="bg-slate-900 p-8 md:p-10 rounded-[2.5rem] text-white shadow-2xl shadow-slate-900/20 relative overflow-hidden group"
-              >
-                <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 group-hover:bg-primary/20 transition-colors" />
-                <div className="flex items-center gap-4 mb-8 relative z-10">
-                  <div className="w-9 h-9 bg-white/10 rounded-xl flex items-center justify-center">
-                    <Clock className="w-4 h-4 text-primary" />
-                  </div>
-                  <h4 className="text-base font-bold tracking-tight">Business Hours</h4>
-                </div>
-                <div className="space-y-4 text-slate-400 text-xs font-medium relative z-10">
-                  <div className="flex justify-between items-center">
-                    <span>Mon - Fri</span>
-                    <span className="text-white">9:00 AM - 6:00 PM</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span>Saturday</span>
-                    <span className="text-white">10:00 AM - 4:00 PM</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span>Sunday</span>
-                    <span className="text-primary font-bold uppercase text-[9px] tracking-widest">Closed</span>
-                  </div>
-                </div>
-              </motion.div>
-            </div>
-
-            {/* Contact Form */}
-            <div className="lg:col-span-8">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="bg-white p-8 md:p-12 rounded-[3rem] border border-slate-100 shadow-2xl shadow-slate-200/40"
-              >
-                <div className="mb-10">
-                  <h3 className="text-2xl font-light text-slate-900 tracking-tight mb-4">Send us a <span className="serif italic text-primary">Message</span></h3>
-                  <p className="text-[11px] text-slate-600 font-medium leading-relaxed mb-6">
-                    We look forward to supporting your construction and infrastructure projects with reliable supply of construction materials, building materials, safety equipment, and industrial supplies.
-                  </p>
-                  <p className="text-[11px] text-slate-400 font-bold uppercase tracking-widest">We usually respond within 24 hours.</p>
-                </div>
-
-                <form className="space-y-8" onSubmit={(e) => e.preventDefault()}>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div className="space-y-2">
-                      <label className="block text-[9px] font-bold text-slate-400 uppercase tracking-[0.2em] ml-1">Full Name</label>
-                      <input
-                        type="text"
-                        required
-                        className="w-full px-6 py-4 rounded-2xl bg-slate-50 border border-slate-100 focus:border-primary focus:ring-4 focus:ring-primary/5 outline-none transition-all text-sm font-medium placeholder:text-slate-300"
-                        placeholder="e.g. Rahul Sharma"
-                      />
+                    <div className="w-16 h-16 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-6">
+                      <CheckCircle2 className="w-8 h-8 text-green-500" />
                     </div>
-                    <div className="space-y-2">
-                      <label className="block text-[9px] font-bold text-slate-400 uppercase tracking-[0.2em] ml-1">Email Address</label>
-                      <input
-                        type="email"
-                        required
-                        className="w-full px-6 py-4 rounded-2xl bg-slate-50 border border-slate-100 focus:border-primary focus:ring-4 focus:ring-primary/5 outline-none transition-all text-sm font-medium placeholder:text-slate-300"
-                        placeholder="rahul@company.com"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="space-y-2">
-                    <label className="block text-[9px] font-bold text-slate-400 uppercase tracking-[0.2em] ml-1">Subject of Inquiry</label>
-                    <div className="relative group">
-                      <select className="w-full px-6 py-4 rounded-2xl bg-slate-50 border border-slate-100 focus:border-primary focus:ring-4 focus:ring-primary/5 outline-none transition-all appearance-none text-sm font-medium text-slate-600 cursor-pointer">
-                        <option>Material Inquiry</option>
-                        <option>Bulk Order Quote</option>
-                        <option>Partnership Request</option>
-                        <option>Other</option>
-                      </select>
-                      <div className="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400 group-hover:text-primary transition-colors">
-                        <ArrowRight className="w-4 h-4 rotate-90" />
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="space-y-2">
-                    <label className="block text-[9px] font-bold text-slate-400 uppercase tracking-[0.2em] ml-1">Your Message</label>
-                    <textarea
-                      rows={5}
-                      required
-                      className="w-full px-6 py-4 rounded-2xl bg-slate-50 border border-slate-100 focus:border-primary focus:ring-4 focus:ring-primary/5 outline-none transition-all resize-none text-sm font-medium placeholder:text-slate-300"
-                      placeholder="Please describe your requirements in detail..."
-                    />
-                  </div>
-
-                  <div className="pt-4">
+                    <h3 className="text-xl font-bold text-slate-900 mb-2 tracking-tight">
+                      {sent === 'whatsapp' ? 'WhatsApp Opened!' : 'Email Draft Ready!'}
+                    </h3>
+                    <p className="text-sm text-slate-500 font-medium max-w-xs mx-auto leading-relaxed">
+                      {sent === 'whatsapp'
+                        ? 'Your message has been pre-filled in WhatsApp. Just hit send!'
+                        : 'Your email client has opened with the inquiry pre-filled. Just send it!'}
+                    </p>
                     <button
-                      type="submit"
-                      className="relative inline-flex items-center justify-center gap-3 bg-slate-900 text-white px-12 py-5 rounded-full font-bold text-[10px] uppercase tracking-[0.2em] hover:bg-primary transition-all group shadow-xl shadow-slate-900/10 hover:scale-105 active:scale-95 overflow-hidden"
+                      onClick={handleReset}
+                      className="mt-8 text-[10px] font-bold uppercase tracking-widest text-primary hover:text-slate-900 transition-colors"
                     >
-                      <span className="relative z-10">Send Message</span>
-                      <Send className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform relative z-10" />
-                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+                      Send another inquiry
                     </button>
-                  </div>
-                </form>
-              </motion.div>
-            </div>
+                  </motion.div>
+                ) : (
+                  <>
+                    <div className="mb-8">
+                      <h3 className="text-2xl font-light text-slate-900 tracking-tight">
+                        Send an <span className="serif italic text-primary">Inquiry</span>
+                      </h3>
+                      <p className="text-xs text-slate-500 font-medium mt-2 leading-relaxed">
+                        Fill in your details and we'll get back to you via WhatsApp or Email — your choice.
+                      </p>
+                    </div>
+
+                    <div className="space-y-5">
+                      {/* Name + Phone */}
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                        <div>
+                          <label className="block text-[9px] font-bold text-slate-400 uppercase tracking-widest mb-2">Full Name *</label>
+                          <input
+                            type="text"
+                            required
+                            value={form.name}
+                            onChange={e => update('name', e.target.value)}
+                            placeholder="Rahul Sharma"
+                            className={inputCls}
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-[9px] font-bold text-slate-400 uppercase tracking-widest mb-2">Phone Number *</label>
+                          <input
+                            type="tel"
+                            required
+                            value={form.phone}
+                            onChange={e => update('phone', e.target.value)}
+                            placeholder="+91 98765 43210"
+                            className={inputCls}
+                          />
+                        </div>
+                      </div>
+
+                      {/* Email */}
+                      <div>
+                        <label className="block text-[9px] font-bold text-slate-400 uppercase tracking-widest mb-2">Email Address <span className="normal-case tracking-normal font-medium text-slate-300">(optional)</span></label>
+                        <input
+                          type="email"
+                          value={form.email}
+                          onChange={e => update('email', e.target.value)}
+                          placeholder="rahul@company.com"
+                          className={inputCls}
+                        />
+                      </div>
+
+                      {/* Subject */}
+                      <div>
+                        <label className="block text-[9px] font-bold text-slate-400 uppercase tracking-widest mb-2">Subject *</label>
+                        <div className="relative">
+                          <select
+                            value={form.subject}
+                            onChange={e => update('subject', e.target.value)}
+                            className={`${inputCls} appearance-none cursor-pointer pr-10`}
+                          >
+                            {subjects.map(s => <option key={s}>{s}</option>)}
+                          </select>
+                          <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none" />
+                        </div>
+                      </div>
+
+                      {/* Message */}
+                      <div>
+                        <label className="block text-[9px] font-bold text-slate-400 uppercase tracking-widest mb-2">Message *</label>
+                        <textarea
+                          rows={4}
+                          required
+                          value={form.message}
+                          onChange={e => update('message', e.target.value)}
+                          placeholder="Describe your material requirements, quantity, project location..."
+                          className={`${inputCls} resize-none`}
+                        />
+                      </div>
+
+                      {/* Submit buttons */}
+                      <div className="flex flex-col sm:flex-row gap-3 pt-2">
+                        <button
+                          onClick={handleWhatsApp}
+                          disabled={!isValid}
+                          className="flex-1 flex items-center justify-center gap-2.5 bg-[#25D366] text-white py-4 rounded-2xl font-bold text-[10px] uppercase tracking-widest hover:opacity-90 transition-all shadow-lg shadow-green-500/20 hover:scale-[1.02] active:scale-95 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100"
+                        >
+                          <MessageCircle className="w-4 h-4" />
+                          Send via WhatsApp
+                        </button>
+                        <button
+                          onClick={handleEmail}
+                          disabled={!isValid}
+                          className="flex-1 flex items-center justify-center gap-2.5 bg-slate-900 text-white py-4 rounded-2xl font-bold text-[10px] uppercase tracking-widest hover:bg-primary transition-all shadow-lg shadow-slate-900/10 hover:scale-[1.02] active:scale-95 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:hover:bg-slate-900"
+                        >
+                          <Send className="w-4 h-4" />
+                          Send via Email
+                        </button>
+                      </div>
+
+                      {!isValid && (
+                        <p className="text-[10px] text-slate-400 font-medium text-center">
+                          * Name, phone, and message are required
+                        </p>
+                      )}
+                    </div>
+                  </>
+                )}
+              </div>
+            </motion.div>
+
           </div>
         </div>
       </section>
