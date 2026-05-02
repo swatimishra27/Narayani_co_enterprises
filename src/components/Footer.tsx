@@ -1,40 +1,20 @@
 import React from 'react';
-import { Boxes, Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin, ArrowRight } from 'lucide-react';
+import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import logo from '../assets/logo.png';
 
 export default function Footer() {
   return (
     <footer className="bg-slate-900 text-white pt-24 pb-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-16 mb-16">
           <div className="space-y-8">
             <Link to="/" className="flex items-center group">
-              <div className="bg-white p-2 rounded-xl inline-block">
-                <img 
-                  src="/logo.png" 
-                  alt="Narayani Enterprises & Co Logo" 
-                  className="h-12 w-auto object-contain transition-transform duration-500 group-hover:scale-105" 
-                  onError={(e) => {
-                    e.currentTarget.style.display = 'none';
-                    e.currentTarget.parentElement!.style.display = 'none';
-                    e.currentTarget.parentElement!.nextElementSibling!.classList.remove('hidden');
-                    e.currentTarget.parentElement!.nextElementSibling!.classList.add('flex');
-                  }}
-                />
-              </div>
-              <div className="hidden items-center gap-3">
-                <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center shadow-lg shadow-white/10 group-hover:rotate-12 transition-transform duration-500">
-                  <Boxes className="w-6 h-6 text-primary" />
-                </div>
-                <div className="flex flex-col">
-                  <span className="font-bold text-xl tracking-tight text-white uppercase leading-none">
-                    NARAYANI
-                  </span>
-                  <span className="text-[10px] font-bold text-slate-400 tracking-wider">
-                    Enterprises & Co
-                  </span>
-                </div>
-              </div>
+              <img
+                src={logo}
+                alt="Narayani Enterprises & Co Logo"
+                className="h-10 w-auto sm:h-12 object-contain transition-transform duration-500 group-hover:scale-105"
+              />
             </Link>
             <p className="text-slate-400 leading-relaxed font-medium text-[13px]">
               Reliable supplier and trading partner for construction materials, building materials, industrial supplies, and safety equipment. Established in 2026.

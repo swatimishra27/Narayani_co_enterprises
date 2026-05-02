@@ -36,7 +36,7 @@ export default function About() {
   return (
     <div className="page-transition">
       {/* 1. Hero Section */}
-      <section className="relative h-[35vh] flex items-center justify-center overflow-hidden">
+      <section className="relative h-[50vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
             src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&q=80&w=1920"
@@ -48,17 +48,17 @@ export default function About() {
           <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-slate-900/40" />
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-center">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-center pt-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <motion.h1 
+            <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-5xl md:text-7xl font-light text-white leading-tight mb-0 drop-shadow-xl tracking-tighter"
+              className="text-5xl md:text-6xl font-light text-white leading-tight mb-0 drop-shadow-xl tracking-tighter"
             >
               About <span className="serif italic text-primary">Us</span>
             </motion.h1>
@@ -67,9 +67,9 @@ export default function About() {
       </section>
 
       {/* 2. About Section (80% Rule / Small Text) */}
-      <section className="py-32 bg-white">
+      <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -254,7 +254,7 @@ export default function About() {
                     desc: 'We support safe working environments by supplying quality safety equipment essential for construction and industrial workplaces.'
                   }
                 ].map((value, index) => (
-                  <div key={index} className={`${index === 4 ? 'sm:col-span-2 sm:w-1/2' : ''}`}>
+                  <div key={index}>
                     <div className="flex items-center gap-3 mb-3">
                       <div className="text-primary group-hover:scale-110 transition-transform">
                         <value.icon className="w-5 h-5" strokeWidth={1.5} />

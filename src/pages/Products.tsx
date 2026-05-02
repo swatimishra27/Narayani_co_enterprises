@@ -26,7 +26,7 @@ export default function Products() {
   return (
     <div className="page-transition">
       {/* 1. Hero Section */}
-      <section className="relative h-[35vh] flex items-center justify-center overflow-hidden">
+      <section className="relative h-[50vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
             src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=1920"
@@ -38,17 +38,17 @@ export default function Products() {
           <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-slate-900/40" />
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-center">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-center pt-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <motion.h1 
+            <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-5xl md:text-7xl font-light text-white leading-tight mb-0 drop-shadow-xl tracking-tighter"
+              className="text-5xl md:text-6xl font-light text-white leading-tight mb-0 drop-shadow-xl tracking-tighter"
             >
               Our <span className="serif italic text-primary">Products</span>
             </motion.h1>
@@ -59,8 +59,8 @@ export default function Products() {
       <section className="py-24 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Search and Filter Controls */}
-          <div className="mb-20">
-            <div className="flex flex-col lg:flex-row gap-10 items-end justify-between border-b border-slate-200 pb-10">
+          <div className="mb-12">
+            <div className="flex flex-col lg:flex-row gap-8 items-end justify-between border-b border-slate-200 pb-8">
               <div className="w-full lg:w-1/2 space-y-6">
                 <div className="flex items-center gap-3 text-[10px] font-bold text-primary uppercase tracking-[0.4em] mb-2">
                   <Search className="w-3 h-3" />

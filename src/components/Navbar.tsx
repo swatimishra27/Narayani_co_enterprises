@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Boxes } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
+import logo from '../assets/logo.png';
 
 const navItems = [
   { label: 'Home', href: '/' },
@@ -35,29 +36,11 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           <Link to="/" className="flex items-center group">
-            <img 
-              src="/logo.png" 
-              alt="Narayani Enterprises & Co Logo" 
-              className="h-14 w-auto object-contain transition-transform duration-500 group-hover:scale-105" 
-              onError={(e) => {
-                e.currentTarget.style.display = 'none';
-                e.currentTarget.nextElementSibling!.classList.remove('hidden');
-                e.currentTarget.nextElementSibling!.classList.add('flex');
-              }}
+            <img
+              src={logo}
+              alt="Narayani Enterprises & Co Logo"
+              className="h-12 w-auto sm:h-14 object-contain transition-transform duration-500 group-hover:scale-105"
             />
-            <div className="hidden items-center gap-3">
-              <div className="w-10 h-10 bg-slate-900 rounded-xl flex items-center justify-center shadow-lg shadow-slate-900/10 group-hover:rotate-12 transition-transform duration-500">
-                <Boxes className="w-6 h-6 text-primary" />
-              </div>
-              <div className="flex flex-col">
-                <span className="font-bold text-xl tracking-tight text-primary uppercase leading-none">
-                  NARAYANI
-                </span>
-                <span className="text-[10px] font-bold text-slate-800 tracking-wider">
-                  Enterprises & Co
-                </span>
-              </div>
-            </div>
           </Link>
 
           {/* Desktop Menu */}
