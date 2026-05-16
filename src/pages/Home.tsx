@@ -6,6 +6,7 @@ import {
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { PRODUCTS } from '../constants';
+import aboutImg from '../assets/image.png'
 
 export default function Home() {
   const featuredProducts = PRODUCTS.slice(0, 4);
@@ -202,19 +203,19 @@ export default function Home() {
                 icon: Building2,
                 title: 'Construction & Infrastructure',
                 desc: 'Cement, steel, aggregates and structural materials for large-scale sites.',
-                image: 'https://images.unsplash.com/photo-1590674899484-d5640e854abe?auto=format&fit=crop&q=80&w=800',
+                image: 'https://plus.unsplash.com/premium_photo-1661964161743-4427c4989d12?q=80&w=1217&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
               },
               {
                 icon: Landmark,
                 title: 'Real Estate Developers',
                 desc: 'Finishing materials, tiles, pipes and fixtures for residential & commercial projects.',
-                image: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&q=80&w=800',
+                image: 'https://plus.unsplash.com/premium_photo-1661962644165-6ff882015625?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
               },
               {
                 icon: Factory,
                 title: 'Industrial Projects',
                 desc: 'Industrial supplies, hardware and safety equipment for manufacturing facilities.',
-                image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=800',
+                image: 'https://plus.unsplash.com/premium_photo-1661492508986-a08981467a8c?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
               },
               {
                 icon: HardHat,
@@ -326,7 +327,7 @@ export default function Home() {
             >
               <div className="rounded-[2.5rem] overflow-hidden shadow-2xl aspect-[4/3]">
                 <img
-                  src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&q=80&w=1000"
+                  src={aboutImg}
                   alt="Our Supply Process"
                   className="w-full h-full object-cover"
                   referrerPolicy="no-referrer"
