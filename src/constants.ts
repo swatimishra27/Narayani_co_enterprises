@@ -51,7 +51,7 @@ export const PRODUCTS: Product[] = [
     id: 'b2',
     name: 'Blocks',
     description: 'Supply of concrete blocks and other masonry blocks used for structural and partition wall construction.',
-    image: 'https://images.unsplash.com/photo-1696681701899-3a8e9dee77d0?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    image: 'https://images.unsplash.com/photo-1659670988949-aadadcdd253f?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     category: 'building'
   },
   {
@@ -146,7 +146,7 @@ export const PRODUCTS: Product[] = [
     id: 'i3',
     name: 'Anchors',
     description: 'High-strength anchoring tools and accessories for heavy duty placements.',
-    image: 'https://images.unsplash.com/photo-1611077755877-3e1dc8df2a26?auto=format&fit=crop&q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1564226591723-659ff3852b2a?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     category: 'industrial'
   },
   {
